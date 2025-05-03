@@ -4,7 +4,7 @@ This documentation provides details on how to integrate with the AiDorse Product
 
 ## Base URL
 
-When running locally: `http://localhost:8080`
+When running: `https://hackvidia.riqgarden.pp.ua`
 
 ## Endpoints
 
@@ -23,6 +23,7 @@ Generates an AI-enhanced product brief based on the provided information.
 | email | String | Yes | User's email address |
 | campaign_name | String | No | Name of the campaign |
 | product_name | String | No | Name of the product |
+| platform | String | No | Platform for the campaign (e.g., Instagram, Facebook) |
 | category | String | No | Product category |
 | price_range | String | No | Price range of the product |
 | campaign_period | String | No | Duration of the campaign |
@@ -154,7 +155,7 @@ if (imageInput.files[0]) {
   formData.append('product_image', imageInput.files[0]);
 }
 
-fetch('http://localhost:8080/generate-brief', {
+fetch('https://hackvidia.riqgarden.pp.ua/generate-brief', {
   method: 'POST',
   body: formData,
 })
@@ -180,7 +181,7 @@ fetch('http://localhost:8080/generate-brief', {
 ```javascript
 // Using the request_id from the generate-brief response
 function downloadPDF(requestId) {
-  window.location.href = `http://localhost:8080/download-pdf/${requestId}`;
+  window.location.href = `https://hackvidia.riqgarden.pp.ua/download-pdf/${requestId}`;
 }
 ```
 

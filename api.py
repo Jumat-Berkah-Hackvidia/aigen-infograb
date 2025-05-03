@@ -192,7 +192,7 @@ PDF_TEMPLATE = """
 </head>
 <body>
     <div class="header"> <div class="logo">Product Brief Generator</div> <h1 class="campaign-title">{{ campaign_info.campaign_name }}</h1> <p>Generated on {{ generation_date }}</p> </div>
-    <div class="meta-info"> <div class="meta-item"> <div class="meta-label">Product Name:</div> <div>{{ campaign_info.product_name }}</div> </div> <div class="meta-item"> <div class="meta-label">Category:</div> <div>{{ campaign_info.category }}</div> </div> <div class="meta-item"> <div class="meta-label">Price Range:</div> <div>{{ campaign_info.price_range }}</div> </div> <div class="meta-item"> <div class="meta-label">Campaign Period:</div> <div>{{ campaign_info.campaign_period }}</div> </div> </div>
+    <div class="meta-info"> <div class="meta-item"> <div class="meta-label">Product Name:</div> <div>{{ campaign_info.product_name }}</div> </div> <div class="meta-item"> <div class="meta-label">Category:</div> <div>{{ campaign_info.category }}</div> </div> <div class="meta-item"> <div class="meta-label">Platform:</div> <div>{{ campaign_info.platform }}</div> </div> <div class="meta-item"> <div class="meta-label">Price Range:</div> <div>{{ campaign_info.price_range }}</div> </div> <div class="meta-item"> <div class="meta-label">Campaign Period:</div> <div>{{ campaign_info.campaign_period }}</div> </div> </div>
     {% if has_image and image_data_uri %} <div class="image-container"> <img src="{{ image_data_uri }}" alt="Product Image"> </div> {% endif %}
     <div class="section brief-content"> <h2 class="section-title">Campaign Description</h2> <div>{{ brief.campaign_description }}</div> </div>
     <div class="section brief-content"> <h2 class="section-title">Campaign Goals</h2> <div>{{ brief.campaign_goals }}</div> </div>
@@ -273,6 +273,7 @@ def create_product_brief():
             "email": email,
             "campaign_name": request.form.get('campaign_name', 'Untitled Campaign'),
             "product_name": request.form.get('product_name', 'N/A'),
+            "platform": request.form.get('platform', 'N/A'),
             "category": request.form.get('category', 'N/A'),
             "price_range": request.form.get('price_range', 'N/A'),
             "campaign_period": request.form.get('campaign_period', 'N/A'),

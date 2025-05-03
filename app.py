@@ -75,9 +75,10 @@ with col1:
         email = st.text_input("Your Email Address*", placeholder="user@example.com", help="Required. Links uploads.")
         # ... (keep other input fields as before) ...
         campaign_name = st.text_input("Campaign Name", placeholder="e.g., Summer Splash Swimwear Launch")
-        product_name = st.text_input("Product Name", placeholder="e.g., Reversible Bikini Set")
+        product_name = st.text_input("Product Name", placeholder="e.g., Summer Swim Set")
+        platform = st.selectbox("Platform", options=["Instagram", "Facebook", "Twitter", "TikTok"], index=0)
         category = st.text_input("Category", placeholder="e.g., Apparel - Swimwear")
-        price_range = st.text_input("Price Range", placeholder="e.g., $50 - $80")
+        price_range = st.text_input("Price Range", placeholder="e.g., Rp 20,000 - Rp 50,000")
         campaign_period = st.text_input("Campaign Period", placeholder="e.g., June 1st - July 31st, 2024")
 
         st.markdown("#### Current Brief Details (Optional)")
@@ -131,7 +132,7 @@ if submit_button:
     elif not api_base_url:
         st.warning("⚠️ Please enter the API Base URL in the sidebar.", icon="⚙️")
     else:
-        form_data = { "email": email, "campaign_name": campaign_name, "product_name": product_name, "category": category, "price_range": price_range, "campaign_period": campaign_period, "current_description": current_description, "current_goals": current_goals, "current_notes": current_notes }
+        form_data = { "email": email, "campaign_name": campaign_name, "product_name": product_name,"platform": platform, "category": category, "price_range": price_range, "campaign_period": campaign_period, "current_description": current_description, "current_goals": current_goals, "current_notes": current_notes }
         files = {}
         if product_image: files["product_image"] = (product_image.name, product_image, product_image.type)
         if pdf_file: files["pdf_file"] = (pdf_file.name, pdf_file, pdf_file.type)
